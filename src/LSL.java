@@ -92,10 +92,24 @@ public class LSL {
         }
         return p;
     }
-    public void borrar (nodoSimple a)
-    {
-    bloque
+
+    public void borrar(nodoSimple a, nodoSimple b) {
+        
+        if(a==null)System.out.println("No se ha encontrado el dato");
+        desconectar(a,b);
     }
+    
+    public void desconectar(nodoSimple a, nodoSimple b){
+        if(a!=primero){
+            b.asignaLiga(a.retornaLiga());
+            if(a==ultimo)ultimo=b;
+        }
+        else{
+            primero=primero.retornaLiga();
+            if(primero==null)ultimo=null;
+        }
+    }
+    
     public void setPrimero(nodoSimple primero) {
         this.primero = primero;
     }
